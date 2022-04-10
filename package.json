@@ -1,6 +1,6 @@
 {
   "name": "require-tsx",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "boenfu",
   "main": "bld/library/index.js",
@@ -9,9 +9,12 @@
     "build": "rimraf ./bld && tsc --build",
     "lint": "eslint .",
     "lint-prettier": "prettier --check .",
-    "test": "yarn lint-prettier && yarn build && yarn lint"
+    "test": "yarn lint-prettier && yarn build && yarn lint && node ./bld/test/index.js",
+    "prepublishOnly": "yarn test"
   },
   "dependencies": {
+    "@types/node": "^17.0.23",
+    "sucrase": "^3.21.0",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
